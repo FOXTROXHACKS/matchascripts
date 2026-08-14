@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>404 Not Found</title>
+</head>
+<body>
+    <script>
+        // Obtenemos el User-Agent del cliente que entra al sitio
+        const userAgent = navigator.userAgent;
+
+        // Verificamos si la petición viene de Roblox (WinInet)
+        if (userAgent.includes("Roblox/WinInet")) {
+            // Si ES Roblox, cambiamos el tipo de contenido a texto plano
+            document.open();
+            document.write(`
+print("¡Script cargado con éxito desde GitHub Pages!")
+
+-- AQUÍ PEGAS TODO TU CÓDIGO DE LUA
+local player = game.Players.LocalPlayer
+print("Hola " .. player.Name)
+            `);
+            document.close();
+        } else {
+            // Si entra una persona normal desde Chrome, Edge o usa curl genérico,
+            // mostramos una página falsa para despistar.
+            document.open();
+            document.write(`
+                <h1>404 Not Found</h1>
+                <p>The requested URL was not found on this server.</p>
+                <hr>
+                <address>Apache/2.4.41 (Ubuntu) Server at ${window.location.hostname} Port 443</address>
+            `);
+            document.close();
+        }
+    </script>
+</body>
+</html>
