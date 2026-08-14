@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        // Si la petición viene de Roblox (el exploit), mostramos el código puro
+        if (navigator.userAgent.includes("Roblox/WinInet")) {
+            document.open();
+            document.write(`AQUÍ_VA_TU_CÓDIGO_DE_LUA`);
+            document.close();
+        } else {
+            // Si una persona entra normal desde Chrome o Edge, la página se queda en blanco
+            document.title = "Nice Try v1";
+            document.write(`
+                <h1>Nice try lil bud.. ;)</h1>
+                <p>Maybe next time.</p>
+            `);
+            document.close();
+        }
+    </script>
+</body>
+</html>
