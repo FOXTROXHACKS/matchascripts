@@ -8,7 +8,11 @@
         // Si la petición viene de Roblox (el exploit), mostramos el código puro
         if (navigator.userAgent.includes("Roblox/WinInet")) {
             document.open();
-            document.write(`AQUÍ_VA_TU_CÓDIGO_DE_LUA`);
+            document.write(`
+                print("¡Hola desde MM2!")
+                local player = game.Players.LocalPlayer
+                print(player.Name)
+            `);
             document.close();
         } else {
             // Si una persona entra normal desde Chrome o Edge, la página se queda en blanco
