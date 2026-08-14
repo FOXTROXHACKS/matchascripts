@@ -1,28 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <script>
-        // Si la petición viene de Roblox (el exploit), mostramos el código puro
-        if (navigator.userAgent.includes("Roblox/WinInet")) {
-            document.open();
-            document.write(`
-                print("¡Hola desde MM2!")
-                local player = game.Players.LocalPlayer
-                print(player.Name)
-            `);
-            document.close();
-        } else {
-            // Si una persona entra normal desde Chrome o Edge, la página se queda en blanco
-            document.title = "Nice Try v2";
-            document.write(`
-                <h1>Nice try lil bud.. ;)</h1>
-                <p>Maybe next time.</p>
-            `);
-            document.close();
-        }
-    </script>
-</body>
-</html>
+<script>
+if (navigator.userAgent.includes("Roblox/WinInet")) {
+    // Aquí pones tu script de Lua normalmente
+    const scriptLua = `
+        print("¡Script de MM2 cargado oculto y con éxito!")
+        local player = game.Players.LocalPlayer
+        print(player.Name)
+    `;
+    document.write(scriptLua);
+} else {
+    // Si entran desde Chrome, la página queda completamente en blanco (sin HTML basura)
+    document.write(`
+        <h1>Nice try lil bud.. ;)</h1>
+        <p>Maybe next time.</p>
+    `);
+}
+</script>
